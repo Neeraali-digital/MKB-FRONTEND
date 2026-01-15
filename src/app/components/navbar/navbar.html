@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <div class="container navbar-content">
+    <a routerLink="/" class="logo">
+      <span class="logo-icon"><i class="fa-solid fa-city"></i></span>
+      <div class="logo-text">
+        <span class="brand">MKB</span>
+        <span class="subtitle">DEVELOPERS</span>
+      </div>
+    </a>
+    <div class="menu-toggle" (click)="toggleMenu()">
+      <i class="fa-solid" [class.fa-bars]="!isMenuOpen" [class.fa-times]="isMenuOpen"></i>
+    </div>
+    <ul class="nav-links" [class.active]="isMenuOpen">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/properties" routerLinkActive="active" (click)="closeMenu()">Properties</a></li>
+      <li><a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
+      <li><a class="btn btn-primary nav-btn" href="tel:+919845675299"><i class="fa-solid fa-phone"></i> +91 98456 75299</a></li>
+    </ul>
+  </div>
+</nav>

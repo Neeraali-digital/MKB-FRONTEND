@@ -1,0 +1,29 @@
+.container-pad {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.listing-header h1 {
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.form-select {
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    border: 1px solid #ddd;
+    font-family: inherit;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}

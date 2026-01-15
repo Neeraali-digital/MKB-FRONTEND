@@ -1,0 +1,109 @@
+<div class="container detail-container" *ngIf="property; else notFound">
+  <!-- Title Header -->
+  <div class="detail-header">
+    <div>
+      <h1 class="page-title">{{ property.title }}</h1>
+      <p class="location"><i class="fa-solid fa-location-dot"></i> {{ property.location }}</p>
+    </div>
+    <div class="price-tag">
+      {{ property.price }}
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery-section">
+    <div class="main-image">
+      <img [src]="mainImage" [alt]="property.title">
+    </div>
+    <div class="thumbnail-list" *ngIf="property.images.length > 1">
+      <div 
+        class="thumbnail" 
+        *ngFor="let img of property.images" 
+        [class.active]="mainImage === img"
+        (click)="setImage(img)">
+        <img [src]="img" alt="Thumbnail">
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Grid -->
+  <div class="content-grid">
+    <!-- Left: Details -->
+    <div class="details-col">
+      <div class="card overview-card">
+        <h3>Overview</h3>
+        <div class="specs-grid">
+          <div class="spec-item" *ngIf="property.bedrooms">
+            <i class="fa-solid fa-bed"></i>
+            <span>{{ property.bedrooms }} Beds</span>
+          </div>
+          <div class="spec-item" *ngIf="property.bathrooms">
+            <i class="fa-solid fa-bath"></i>
+            <span>{{ property.bathrooms }} Baths</span>
+          </div>
+          <div class="spec-item">
+            <i class="fa-solid fa-vector-square"></i>
+            <span>{{ property.area }} Sqft</span>
+          </div>
+          <div class="spec-item">
+            <i class="fa-solid fa-house"></i>
+            <span>{{ property.type }}</span>
+          </div>
+          <div class="spec-item">
+            <i class="fa-solid fa-tag"></i>
+            <span>{{ property.status }}</span>
+          </div>
+        </div>
+
+        <div class="description">
+          <h4>Description</h4>
+          <p>{{ property.description }}</p>
+        </div>
+
+        <div class="amenities">
+          <h4>Amenities</h4>
+          <div class="amenities-list">
+            <span class="amenity-tag" *ngFor="let amenity of property.amenities">
+              <i class="fa-solid fa-check"></i> {{ amenity }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Contact -->
+    <div class="sidebar-col">
+      <div class="card contact-card">
+        <h3>Contact Agent</h3>
+        <div class="agent-info">
+          <div class="agent-avatar">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div>
+            <h4>{{ property.agentName }}</h4>
+            <p>Property Expert</p>
+          </div>
+        </div>
+        
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name">
+          <input type="email" placeholder="Your Email">
+          <input type="tel" placeholder="Phone Number">
+          <textarea rows="4" placeholder="I am interested in this property..."></textarea>
+          <button class="btn btn-primary full-width">Send Enquiry</button>
+          <a [href]="'tel:' + property.agentContact" class="btn btn-outline full-width">
+            <i class="fa-solid fa-phone"></i> Call Agent
+          </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="container not-found">
+    <h2>Property Not Found</h2>
+    <p>The property you are looking for does not exist or has been removed.</p>
+    <a href="/properties" class="btn btn-primary">Back to Listing</a>
+  </div>
+</ng-template>

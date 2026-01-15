@@ -1,0 +1,84 @@
+<div class="home-view">
+  
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg">
+      <div class="overlay"></div>
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" alt="Beautiful Home">
+    </div>
+    
+    <div class="hero-content container">
+      <h1 class="hero-title">Find Your Dream Property with <br><span class="highlight">MKB Developers</span></h1>
+      <p class="hero-subtitle">Premium properties, trusted developers, and your future home awaits.</p>
+      
+      <div class="search-box">
+        <div class="input-group">
+          <label>Location</label>
+          <input type="text" placeholder="e.g. Whitefield">
+        </div>
+        <div class="input-group">
+          <label>Property Type</label>
+          <select>
+            <option>All Types</option>
+            <option>House</option>
+            <option>Apartment</option>
+            <option>Plot</option>
+            <option>Farmhouse</option>
+          </select>
+        </div>
+        <button class="search-btn">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advertising Section -->
+  <section class="advertising-section container">
+    <div class="ad-banner">
+      <div class="ad-content">
+        <h2>Exclusive Pre-Launch Offer!</h2>
+        <p>Book your plot in "Green Valley" today and get 10% off. Limited time only.</p>
+        <button class="btn btn-primary">Enquire Now</button>
+      </div>
+      <div class="ad-image">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80" alt="Ad Property">
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Properties -->
+  <section class="featured-section container">
+    <div class="section-header">
+      <h2>Featured <span class="highlight">Properties</span></h2>
+      <a routerLink="/properties" class="view-all-link">View All Properties <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    
+    <div class="property-grid">
+      <app-property-card *ngFor="let property of featuredProperties" [property]="property"></app-property-card>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="text-center">Why Choose MKB?</h2>
+      <div class="features-grid">
+        <div class="feature-box">
+          <i class="fa-solid fa-handshake"></i>
+          <h3>Trusted Developers</h3>
+          <p>Over 10 years of experience in delivering quality homes.</p>
+        </div>
+        <div class="feature-box">
+          <i class="fa-solid fa-file-shield"></i>
+          <h3>Clear Documents</h3>
+          <p>100% legal verification and transparent documentation.</p>
+        </div>
+        <div class="feature-box">
+          <i class="fa-solid fa-percent"></i>
+          <h3>Best Price</h3>
+          <p>We offer the most competitive prices in the market.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</div>

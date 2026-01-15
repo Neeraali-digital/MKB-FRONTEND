@@ -1,0 +1,38 @@
+<div class="property-card" [routerLink]="['/property', property.id]">
+  <div class="card-image">
+    <img [src]="property.images[0]" [alt]="property.title" loading="lazy">
+    <div class="overlay"></div>
+    <div class="status-badge" [class.rent]="property.status === 'For Rent'">
+      {{ property.status }}
+    </div>
+    <button class="share-btn" (click)="shareProperty($event)" title="Share">
+      <i class="fa-solid fa-share-nodes"></i>
+    </button>
+  </div>
+  <div class="card-content">
+    <div class="card-meta">
+      <span class="property-type">{{ property.type }}</span>
+      <h3 class="card-price">{{ property.price }}</h3>
+    </div>
+    <h4 class="card-title" [title]="property.title">{{ property.title }}</h4>
+    <div class="card-location">
+      <i class="fa-solid fa-location-dot"></i> {{ property.location }}
+    </div>
+    
+    <div class="card-features">
+      <span class="feature" *ngIf="property.bedrooms">
+        <i class="fa-solid fa-bed"></i> {{ property.bedrooms }}
+      </span>
+      <span class="feature" *ngIf="property.bathrooms">
+        <i class="fa-solid fa-bath"></i> {{ property.bathrooms }}
+      </span>
+      <span class="feature">
+        <i class="fa-solid fa-vector-square"></i> {{ property.area }} sqft
+      </span>
+    </div>
+    
+    <div class="card-footer">
+      <span class="view-details">View Details <i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+  </div>
+</div>

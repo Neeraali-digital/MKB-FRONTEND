@@ -1,0 +1,17 @@
+<div class="container container-pad">
+  <div class="listing-header">
+    <h1>All Properties</h1>
+    <div class="filters">
+      <!-- Simple Sort Filter can be added here -->
+      <select class="form-select">
+        <option>Sort by: Newest</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="property-grid">
+    <app-property-card *ngFor="let property of properties" [property]="property"></app-property-card>
+  </div>
+</div>
