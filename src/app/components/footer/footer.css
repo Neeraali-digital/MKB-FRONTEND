@@ -94,14 +94,13 @@
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #888;
     display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
     justify-content: space-between;
     align-items: center;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.02), transparent, rgba(255, 255, 255, 0.02));
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-logo {
@@ -114,9 +113,10 @@
 .powered-by {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     font-size: 0.85rem;
-    color: #888;
+    color: rgba(255, 255, 255, 0.6);
+    /* Lighter gray for better visibility */
 }
 
 .powered-by span {
