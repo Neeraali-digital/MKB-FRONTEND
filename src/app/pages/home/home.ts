@@ -12,13 +12,18 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.css'
 })
 export class HomeComponent implements OnInit {
-  featuredProperties: Property[] = [];
+  featuredProperties: Property[] = []; // Keeping for backward compatibility or if needed
+  ongoingProjects: Property[] = [];
+  completedProjects: Property[] = [];
 
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {
-    this.propertyService.getFeaturedProperties().subscribe(data => {
-      this.featuredProperties = data;
+    this.propertyService.getProperties().subscribe(data => {
+      this.ongoingProjects = data.filter(p => p.projectStatus === 'Ongoing');
+      this.completedProjects = data.filter(p => p.projectStatus === 'Completed');
+      // Also set featured if still used elsewhere, or just ignore
+      this.featuredProperties = data.filter(p => p.isFeatured);
     });
   }
 }

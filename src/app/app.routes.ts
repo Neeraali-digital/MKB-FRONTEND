@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home';
 import { ListingComponent } from './pages/listing/listing';
 import { PropertyDetailComponent } from './pages/property-detail/property-detail';
+import { About } from './pages/about/about';
+import { Contact } from './pages/contact/contact';
 
 export const routes: Routes = [
     {
@@ -20,9 +22,14 @@ export const routes: Routes = [
         title: 'Property Details - MKB Developers'
     },
     {
+        path: 'about',
+        component: About,
+        title: 'About Us - MKB Developers'
+    },
+    {
         path: 'contact',
-        redirectTo: '', // Placeholder
-        pathMatch: 'full'
+        component: Contact,
+        title: 'Contact Us - MKB Developers'
     },
     {
         path: '**',

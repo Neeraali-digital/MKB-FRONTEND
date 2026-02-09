@@ -15,6 +15,8 @@ export interface Property {
   amenities: string[];
   isFeatured: boolean;
   status: 'For Sale' | 'For Rent';
+  projectStatus: 'Ongoing' | 'Completed';
+  videoUrl?: string;
   agentName: string;
   agentContact: string;
 }
@@ -42,6 +44,8 @@ export class PropertyService {
       amenities: ['Private Garden', 'Swimming Pool', '24/7 Security', 'Power Backup', 'Club House'],
       isFeatured: true,
       status: 'For Sale',
+      projectStatus: 'Ongoing',
+      videoUrl: 'https://www.youtube.com/embed/y9j-BL5ocW8',
       agentName: 'MKB Sales Team',
       agentContact: '+91 9845675299'
     },
@@ -61,6 +65,8 @@ export class PropertyService {
       amenities: ['Gym', 'Children Play Area', 'Covered Parking', 'Lift'],
       isFeatured: true,
       status: 'For Sale',
+      projectStatus: 'Completed',
+      videoUrl: 'https://www.youtube.com/embed/fT4lCVc_G2s',
       agentName: 'MKB Sales Team',
       agentContact: '+91 9845675299'
     },
@@ -80,6 +86,8 @@ export class PropertyService {
       amenities: ['Large Lawn', 'Fruit Trees', 'Borewell'],
       isFeatured: false,
       status: 'For Sale',
+      projectStatus: 'Ongoing',
+      videoUrl: 'https://www.youtube.com/embed/V-x7e0W5iG4',
       agentName: 'MKB Sales Team',
       agentContact: '+91 9845675299'
     },
@@ -97,6 +105,8 @@ export class PropertyService {
       amenities: ['Blacktop Roads', 'Underground Drainage', 'Street Lights', 'Park'],
       isFeatured: true,
       status: 'For Sale',
+      projectStatus: 'Completed',
+      videoUrl: 'https://www.youtube.com/embed/Bs2-sQ1yZWE',
       agentName: 'MKB Sales Team',
       agentContact: '+91 9845675299'
     },
@@ -116,6 +126,7 @@ export class PropertyService {
       amenities: ['Furnished', 'Power Backup', 'Lift', 'Security'],
       isFeatured: false,
       status: 'For Sale',
+      projectStatus: 'Completed',
       agentName: 'MKB Sales Team',
       agentContact: '+91 9845675299'
     }
@@ -130,7 +141,7 @@ export class PropertyService {
   getPropertyById(id: string): Observable<Property | undefined> {
     return of(this.properties.find(p => p.id === id));
   }
-  
+
   getFeaturedProperties(): Observable<Property[]> {
     // Return first 3 or marked featured
     return of(this.properties.filter(p => p.isFeatured));

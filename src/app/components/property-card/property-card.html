@@ -1,9 +1,20 @@
 <div class="property-card" [routerLink]="['/property', property.id]">
   <div class="card-image">
-    <img [src]="property.images[0]" [alt]="property.title" loading="lazy">
-    <div class="overlay"></div>
+    <iframe *ngIf="property.videoUrl" 
+            [src]="getSafeUrl(property.videoUrl)" 
+            title="Property Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            class="property-video">
+    </iframe>
+    <img *ngIf="!property.videoUrl" [src]="property.images[0]" [alt]="property.title" loading="lazy">
+    <div class="overlay" *ngIf="!property.videoUrl"></div>
     <div class="status-badge" [class.rent]="property.status === 'For Rent'">
       {{ property.status }}
+    </div>
+    <div class="project-status" [class.completed]="property.projectStatus === 'Completed'">
+      {{ property.projectStatus }}
     </div>
     <button class="share-btn" (click)="shareProperty($event)" title="Share">
       <i class="fa-solid fa-share-nodes"></i>

@@ -28,10 +28,22 @@
     line-height: 1;
 }
 
+
 .logo-text {
     display: flex;
     flex-direction: column;
-    line-height: title;
+    justify-content: center;
+}
+
+.nav-logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo-img:hover {
+    transform: scale(1.05);
 }
 
 .brand {

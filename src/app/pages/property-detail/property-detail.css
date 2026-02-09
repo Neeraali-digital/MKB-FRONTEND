@@ -160,6 +160,27 @@
     color: green;
 }
 
+.location-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.location-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--secondary);
+}
+
+.map-container {
+    width: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    background: #f0f0f0;
+    /* Loader placeholder color */
+}
+
 /* Sidebar */
 .agent-info {
     display: flex;

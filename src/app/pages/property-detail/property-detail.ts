@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { PropertyService, Property } from '../../services/property';
 
 @Component({
@@ -16,7 +17,8 @@ export class PropertyDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private propertyService: PropertyService
+    private propertyService: PropertyService,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -33,5 +35,12 @@ export class PropertyDetailComponent implements OnInit {
 
   setImage(image: string) {
     this.mainImage = image;
+  }
+
+  getMapUrl(): SafeResourceUrl | null {
+    if (!this.property?.location) return null;
+    // Using Google Maps Embed API or simple iframe query
+    const url = `https://maps.google.com/maps?q=${encodeURIComponent(this.property.location)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

@@ -45,15 +45,27 @@
     </div>
   </section>
 
-  <!-- Featured Properties -->
-  <section class="featured-section container">
+  <!-- Ongoing Projects -->
+  <section class="projects-section container" id="ongoing">
     <div class="section-header">
-      <h2>Featured <span class="highlight">Properties</span></h2>
-      <a routerLink="/properties" class="view-all-link">View All Properties <i class="fa-solid fa-arrow-right"></i></a>
+      <h2>Ongoing <span class="highlight">Projects</span></h2>
+      <a routerLink="/properties" [queryParams]="{status: 'Ongoing'}" class="view-all-link">View All <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     
     <div class="property-grid">
-      <app-property-card *ngFor="let property of featuredProperties" [property]="property"></app-property-card>
+      <app-property-card *ngFor="let property of ongoingProjects" [property]="property"></app-property-card>
+    </div>
+  </section>
+
+  <!-- Completed Projects -->
+  <section class="projects-section container bg-light" id="completed" style="margin-top: 4rem;">
+    <div class="section-header">
+      <h2>Completed <span class="highlight">Projects</span></h2>
+      <a routerLink="/properties" [queryParams]="{status: 'Completed'}" class="view-all-link">View All <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    
+    <div class="property-grid">
+      <app-property-card *ngFor="let property of completedProjects" [property]="property"></app-property-card>
     </div>
   </section>
 

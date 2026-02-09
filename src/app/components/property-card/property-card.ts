@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Property } from '../../services/property';
 
 @Component({
@@ -12,6 +13,13 @@ import { Property } from '../../services/property';
 })
 export class PropertyCardComponent {
   @Input() property!: Property;
+
+  private sanitizer = inject(DomSanitizer);
+
+  getSafeUrl(url: string | undefined): SafeResourceUrl | null {
+    if (!url) return null;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
   shareProperty(event: Event) {
     event.preventDefault(); // Prevent navigating to detail if inside anchor
