@@ -1,0 +1,78 @@
+.top-bar {
+    background-color: #000;
+    color: #fff;
+    padding: 8px 0;
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 1px solid #222;
+}
+
+.top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info,
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-item,
+.email-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-item i,
+.email-info i {
+    color: var(--primary);
+    font-size: 0.8rem;
+    border: 1px solid var(--primary);
+    padding: 4px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.separator {
+    color: #444;
+    font-weight: 300;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    color: #fff;
+    border: 1px solid #444;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.social-links a:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #000;
+}
+
+@media (max-width: 992px) {
+    .top-bar {
+        display: none;
+        /* Hide top bar on smaller screens or adjust as needed */
+    }
+}
