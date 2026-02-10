@@ -8,25 +8,16 @@
     </div>
     
     <div class="hero-content container">
-      <h1 class="hero-title">Find Your Dream Property with <br><span class="highlight">MKB Developers</span></h1>
-      <p class="hero-subtitle">Premium properties, trusted developers, and your future home awaits.</p>
+      <h1 class="hero-title">Plotted Developments in <br><span class="highlight">Prime Bangalore Locations</span></h1>
+      <p class="hero-subtitle">RERA-approved projects with clear titles and transparent pricing.</p>
       
-      <div class="search-box">
-        <div class="input-group">
-          <label>Location</label>
-          <input type="text" placeholder="e.g. Whitefield">
-        </div>
-        <div class="input-group">
-          <label>Property Type</label>
-          <select>
-            <option>All Types</option>
-            <option>House</option>
-            <option>Apartment</option>
-            <option>Plot</option>
-            <option>Farmhouse</option>
-          </select>
-        </div>
-        <button class="search-btn">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn btn-primary cta-main">
+          <i class="fa-solid fa-calendar-check"></i> Schedule a Site Visit
+        </a>
+        <a href="https://wa.me/919845675299" target="_blank" class="btn cta-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+        </a>
       </div>
     </div>
   </section>
@@ -152,23 +143,14 @@
     <div class="reviews-slider">
       <div class="reviews-track" [style.transform]="getTransform()">
         <div class="review-slide" *ngFor="let review of reviews">
-          <div class="review-card-modern">
-            <div class="quote-mark"><i class="fa-solid fa-quote-right"></i></div>
-            <div class="reviewer-header">
-              <img [src]="review.image" [alt]="review.name" class="reviewer-img">
-              <div class="reviewer-meta">
-                <div class="reviewer-name">{{review.name}}</div>
-                <div class="reviewer-location">{{review.location}}</div>
-              </div>
+          <div class="review-video-card">
+            <div class="video-container">
+              <iframe [src]="getSafeUrl(review.videoUrl)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+            <div class="reviewer-footer">
+              <div class="reviewer-name">{{review.name}}</div>
+              <div class="reviewer-location">{{review.location}}</div>
             </div>
-            <p class="review-text">{{review.text}}</p>
           </div>
         </div>
       </div>

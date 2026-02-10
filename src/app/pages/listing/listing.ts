@@ -12,12 +12,18 @@ import { PropertyCardComponent } from '../../components/property-card/property-c
 })
 export class ListingComponent implements OnInit {
   properties: Property[] = [];
+  isLoading = true;
+  skeletonItems = Array(6).fill(0); // Show 6 skeleton cards while loading
 
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {
-    this.propertyService.getProperties().subscribe(data => {
-      this.properties = data;
-    });
+    // Simulate 2 seconds loading delay
+    setTimeout(() => {
+      this.propertyService.getProperties().subscribe(data => {
+        this.properties = data;
+        this.isLoading = false;
+      });
+    }, 2000);
   }
 }

@@ -1,12 +1,75 @@
 .navbar {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
+    background: white;
+    /* Standard solid bg for internal pages */
     position: sticky;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    box-shadow: var(--shadow-sm);
     padding: 12px 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Hero Page Overrides (Home, About, etc.) */
+.navbar.transparent:not(.scrolled) {
+    background: transparent;
+    position: absolute;
+    top: 45px;
+    padding: 15px 0;
+    box-shadow: none;
+    border-bottom: none;
+}
+
+@media (max-width: 900px) {
+    .navbar.transparent:not(.scrolled) {
+        top: 0;
+        padding: 10px 0;
+    }
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    position: fixed;
+    top: 0;
+    padding: 10px 0;
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Link Colors Logic */
+.nav-links li a {
+    color: var(--text-main) !important;
+    /* Dark by default */
+    transition: all 0.3s ease;
+}
+
+/* White text only on transparent state */
+.navbar.transparent:not(.scrolled) .nav-links li a {
+    color: #ffffff !important;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--primary) !important;
+}
+
+/* Logo handling */
+.nav-logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: all 0.4s ease;
+    filter: none;
+    /* Original color by default */
+}
+
+/* White logo only when navbar is transparent */
+.navbar.transparent:not(.scrolled) .nav-logo-img {
+    filter: brightness(0) invert(1);
+    height: 55px;
 }
 
 .navbar-content {
@@ -33,13 +96,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.nav-logo-img {
-    height: 50px;
-    width: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
 }
 
 .nav-logo-img:hover {
@@ -74,15 +130,13 @@
 .nav-links li a {
     font-weight: 500;
     font-size: 0.95rem;
-    color: var(--text-main);
     text-decoration: none;
     position: relative;
-    transition: color 0.3s;
 }
 
 .nav-links li a:not(.btn):hover,
 .nav-links li a.active:not(.btn) {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 
 .nav-links li a:not(.btn)::after {
@@ -96,16 +150,21 @@
     transition: width 0.3s;
 }
 
-.nav-links li a:not(.btn):hover::after,
-.nav-links li a.active:not(.btn)::after {
-    width: 100%;
-}
-
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: #ffffff;
+}
+
+.navbar.scrolled .menu-toggle {
     color: var(--secondary);
+}
+
+.navbar.scrolled .nav-logo-img {
+    height: 48px;
+    filter: none;
+    /* Revert to original logo colors on white bg */
 }
 
 .nav-btn {
@@ -123,28 +182,37 @@
 }
 
 @media (max-width: 900px) {
+    .nav-logo-img {
+        height: 40px;
+        /* Smaller logo on mobile */
+    }
+
     .menu-toggle {
         display: block;
+        padding: 5px;
     }
 
     .nav-links {
         position: fixed;
-        top: 75px;
+        top: 0;
+        /* Full height menu or starts from top */
         left: 0;
         right: 0;
+        bottom: 0;
         background: white;
         flex-direction: column;
+        justify-content: center;
         padding: 30px;
-        gap: 20px;
-        box-shadow: var(--shadow-md);
-        transform: translateY(-150%);
-        transition: transform 0.3s ease;
-        z-index: 999;
-        border-bottom: 2px solid var(--primary);
+        gap: 25px;
+        box-shadow: none;
+        transform: translateX(100%);
+        /* Slide from side instead of top */
+        transition: transform 0.4s ease-in-out;
+        z-index: 1001;
     }
 
     .nav-links.active {
-        transform: translateY(0);
+        transform: translateX(0);
     }
 
     .nav-links li {
@@ -154,7 +222,23 @@
 
     .nav-links li a {
         display: block;
-        padding: 10px;
-        font-size: 1.1rem;
+        padding: 15px;
+        font-size: 1.4rem;
+        color: var(--secondary) !important;
+        /* Force dark text in mobile menu */
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+        color: var(--primary) !important;
+    }
+
+    /* Close button inside mobile menu (optional, but good for UX) */
+    .menu-toggle.active {
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        z-index: 1002;
+        color: var(--secondary);
     }
 }

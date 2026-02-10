@@ -12,6 +12,22 @@
   </div>
   
   <div class="property-grid">
-    <app-property-card *ngFor="let property of properties" [property]="property"></app-property-card>
+    <!-- Skeleton Loaders -->
+    <ng-container *ngIf="isLoading">
+      <div class="property-card-skeleton" *ngFor="let item of skeletonItems">
+        <div class="skeleton-image"></div>
+        <div class="skeleton-content">
+          <div class="skeleton-line title"></div>
+          <div class="skeleton-line meta"></div>
+          <div class="skeleton-line price"></div>
+          <div class="skeleton-line footer"></div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Actual Properties -->
+    <ng-container *ngIf="!isLoading">
+      <app-property-card *ngFor="let property of properties" [property]="property"></app-property-card>
+    </ng-container>
   </div>
 </div>

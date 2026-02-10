@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PropertyService, Property } from '../../services/property';
 import { PropertyCardComponent } from '../../components/property-card/property-card';
 import { RouterLink } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -12,54 +13,54 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.css'
 })
 export class HomeComponent implements OnInit {
-  featuredProperties: Property[] = []; // Keeping for backward compatibility or if needed
+  featuredProperties: Property[] = [];
   ongoingProjects: Property[] = [];
   completedProjects: Property[] = [];
+
+  private sanitizer = inject(DomSanitizer);
 
   reviews = [
     {
       name: 'Rahul Sharma',
       location: 'Bangalore',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-      text: 'Choosing MKB was the best decision for our first home. The documentation was crystal clear.',
-      stars: 5
+      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder, using common video
+      youtubeId: 'dQw4w9WgXcQ'
     },
     {
       name: 'Priya Nair',
       location: 'Kerala',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-      text: 'Excellent project management and timely delivery. Highly recommended for land investments.',
-      stars: 5
+      videoUrl: 'https://www.youtube.com/embed/jNQXAC9IVRw',
+      youtubeId: 'jNQXAC9IVRw'
     },
     {
       name: 'Michael Chen',
       location: 'Dubai',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-      text: 'Transparent dealings and very helpful staff. They made the entire process stress-free.',
-      stars: 4.5
+      videoUrl: 'https://www.youtube.com/embed/YykjPeFlK80',
+      youtubeId: 'YykjPeFlK80'
     },
     {
       name: 'Anish Kumar',
       location: 'Bangalore',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-      text: 'The team at MKB goes above and beyond. Their plots are in the most promising locations.',
-      stars: 5
+      videoUrl: 'https://www.youtube.com/embed/tgbNymZ7vqY',
+      youtubeId: 'tgbNymZ7vqY'
     },
     {
       name: 'Sarah George',
       location: 'Mysore',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80',
-      text: 'Integrity and quality are what define MKB. I am extremely happy with my investment.',
-      stars: 5
+      videoUrl: 'https://www.youtube.com/embed/9bZkp7q19f0',
+      youtubeId: '9bZkp7q19f0'
     },
     {
       name: 'David Wilson',
       location: 'Dubai',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-      text: 'MKB Developers provided excellent guidance throughout the registration process. Truly professional.',
-      stars: 5
+      videoUrl: 'https://www.youtube.com/embed/C0DPdy98e4c',
+      youtubeId: 'C0DPdy98e4c'
     }
   ];
+
+  getSafeUrl(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
   activeReviewIndex = 0;
 
