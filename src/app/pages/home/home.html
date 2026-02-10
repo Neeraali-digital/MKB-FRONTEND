@@ -144,6 +144,9 @@
       <div class="reviews-track" [style.transform]="getTransform()">
         <div class="review-slide" *ngFor="let review of reviews">
           <div class="review-video-card">
+            <div class="video-tag">
+              <i class="fa-brands fa-youtube"></i> Video Review
+            </div>
             <div class="video-container">
               <iframe [src]="getSafeUrl(review.videoUrl)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
@@ -158,7 +161,7 @@
       <div class="slider-dots">
         <span *ngFor="let review of reviews; let i = index" 
               [class.active]="i === activeReviewIndex"
-              [style.display]="i > (reviews.length - 3) && reviews.length > 3 ? 'none' : 'block'"
+              [style.display]="i > (reviews.length - 4) && reviews.length > 4 ? 'none' : 'block'"
               (click)="setReview(i)"></span>
       </div>
     </div>

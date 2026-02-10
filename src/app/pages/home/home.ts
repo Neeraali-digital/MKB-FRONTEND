@@ -23,38 +23,38 @@ export class HomeComponent implements OnInit {
     {
       name: 'Rahul Sharma',
       location: 'Bangalore',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder, using common video
-      youtubeId: 'dQw4w9WgXcQ'
+      videoUrl: 'https://www.youtube.com/embed/5X6x9xY-B28',
+      youtubeId: '5X6x9xY-B28'
     },
     {
       name: 'Priya Nair',
       location: 'Kerala',
-      videoUrl: 'https://www.youtube.com/embed/jNQXAC9IVRw',
-      youtubeId: 'jNQXAC9IVRw'
+      videoUrl: 'https://www.youtube.com/embed/qI_2QfT7u7o',
+      youtubeId: 'qI_2QfT7u7o'
     },
     {
       name: 'Michael Chen',
       location: 'Dubai',
-      videoUrl: 'https://www.youtube.com/embed/YykjPeFlK80',
-      youtubeId: 'YykjPeFlK80'
+      videoUrl: 'https://www.youtube.com/embed/3jG5yB-B0lI',
+      youtubeId: '3jG5yB-B0lI'
     },
     {
       name: 'Anish Kumar',
       location: 'Bangalore',
-      videoUrl: 'https://www.youtube.com/embed/tgbNymZ7vqY',
-      youtubeId: 'tgbNymZ7vqY'
+      videoUrl: 'https://www.youtube.com/embed/7X8m-T0fF-4',
+      youtubeId: '7X8m-T0fF-4'
     },
     {
       name: 'Sarah George',
       location: 'Mysore',
-      videoUrl: 'https://www.youtube.com/embed/9bZkp7q19f0',
-      youtubeId: '9bZkp7q19f0'
+      videoUrl: 'https://www.youtube.com/embed/8G_8Y_Y-X8s',
+      youtubeId: '8G_8Y_Y-X8s'
     },
     {
       name: 'David Wilson',
       location: 'Dubai',
-      videoUrl: 'https://www.youtube.com/embed/C0DPdy98e4c',
-      youtubeId: 'C0DPdy98e4c'
+      videoUrl: 'https://www.youtube.com/embed/yxC6PNoi6M8',
+      youtubeId: 'yxC6PNoi6M8'
     }
   ];
 
@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
     // Auto-slide reviews
     setInterval(() => {
       const isDesktop = window.innerWidth > 992;
-      const maxIndex = isDesktop ? this.reviews.length - 3 : this.reviews.length - 1;
+      const maxIndex = isDesktop ? this.reviews.length - 4 : this.reviews.length - 1;
 
       if (this.activeReviewIndex >= maxIndex) {
         this.activeReviewIndex = 0;
@@ -94,10 +94,9 @@ export class HomeComponent implements OnInit {
     const isDesktop = window.innerWidth > 992;
     if (isDesktop) {
       // Move by (item_width + gap)
-      // item_width = (100% - 60px) / 3
+      // item_width = (100% - 90px) / 4
       // gap = 30px
-      // distance = (33.33% - 20px) + 30px = 33.33% + 10px
-      return `translateX(calc(-${this.activeReviewIndex} * ((100% - 60px) / 3 + 30px)))`;
+      return `translateX(calc(-${this.activeReviewIndex} * ((100% - 90px) / 4 + 30px)))`;
     }
     return `translateX(-${this.activeReviewIndex * 100}%)`;
   }
