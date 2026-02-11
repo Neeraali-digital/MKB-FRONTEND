@@ -23,57 +23,30 @@
   </section>
 
   <!-- Trust & Stats Section -->
-  <section class="trust-section">
-    <div class="trust-bg-overlay"></div>
-    <div class="container relative-content">
-      <div class="trust-header">
-        <div class="brand-badge">
-          <span class="badge-line"></span>
-          <span class="badge-text">MKB Developers and Promoters</span>
-          <span class="badge-line"></span>
+  <section class="trust-section-compact">
+    <div class="container">
+      <div class="trust-banner">
+        <div class="trust-brand">
+          <span class="brand-tag">MKB Developers and Promoters</span>
+          <h3 class="trust-title">10+ Years of Excellence in Real Estate</h3>
         </div>
-        <h2 class="section-title main-heading">10+ Years of <span class="gold-text">Trusted</span> Real Estate Development</h2>
-        <p class="section-subtitle">Delivering legally secure plotted developments and land projects since 2015.</p>
-      </div>
-      
-      <div class="stats-container">
-        <div class="stat-card-premium">
-          <div class="stat-icon">
-            <i class="fa-solid fa-calendar-check"></i>
-          </div>
-          <div class="stat-info">
-            <h3 class="stat-number">2015</h3>
-            <p class="stat-label">Established</p>
-          </div>
-        </div>
-        
-        <div class="stat-card-premium">
-          <div class="stat-icon">
+        <div class="trust-stats-inline">
+          <div class="stat-compact">
             <i class="fa-solid fa-award"></i>
+            <div class="stat-num">10+</div>
+            <div class="stat-text">Years</div>
           </div>
-          <div class="stat-info">
-            <h3 class="stat-number">10+</h3>
-            <p class="stat-label">Years Experience</p>
-          </div>
-        </div>
-        
-        <div class="stat-card-premium">
-          <div class="stat-icon">
+          <div class="stat-divider"></div>
+          <div class="stat-compact">
             <i class="fa-solid fa-map-location-dot"></i>
+            <div class="stat-num">25+</div>
+            <div class="stat-text">Projects</div>
           </div>
-          <div class="stat-info">
-            <h3 class="stat-number">25+</h3>
-            <p class="stat-label">Projects Delivered</p>
-          </div>
-        </div>
-        
-        <div class="stat-card-premium">
-          <div class="stat-icon">
+          <div class="stat-divider"></div>
+          <div class="stat-compact">
             <i class="fa-solid fa-people-roof"></i>
-          </div>
-          <div class="stat-info">
-            <h3 class="stat-number">500+</h3>
-            <p class="stat-label">Families Served</p>
+            <div class="stat-num">500+</div>
+            <div class="stat-text">Families</div>
           </div>
         </div>
       </div>
@@ -81,27 +54,65 @@
   </section>
 
 
-  <!-- Ongoing Projects -->
-  <section class="projects-section container" id="ongoing">
-    <div class="section-header">
-      <h2>Ongoing <span class="highlight">Projects</span></h2>
-      <a routerLink="/properties" [queryParams]="{status: 'Ongoing'}" class="view-all-link">View All <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-    
-    <div class="property-grid">
-      <app-property-card *ngFor="let property of ongoingProjects" [property]="property"></app-property-card>
-    </div>
-  </section>
+  <!-- Projects Section - Unified Design -->
+  <section class="projects-section-modern">
+    <div class="container">
+      <!-- Section Header with Decorative Elements -->
+      <div class="section-header-modern">
+        <div class="header-decoration">
+          <div class="decoration-line"></div>
+          <span class="section-label">OUR PORTFOLIO</span>
+          <div class="decoration-line"></div>
+        </div>
+        <h2 class="section-title-large">
+          Discover Our <span class="text-gold">Projects</span>
+        </h2>
+        <p class="section-description">
+          Explore our meticulously crafted developments across Bangalore
+        </p>
+      </div>
 
-  <!-- Completed Projects -->
-  <section class="projects-section container bg-light" id="completed" style="margin-top: 4rem;">
-    <div class="section-header">
-      <h2>Completed <span class="highlight">Projects</span></h2>
-      <a routerLink="/properties" [queryParams]="{status: 'Completed'}" class="view-all-link">View All <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-    
-    <div class="property-grid">
-      <app-property-card *ngFor="let property of completedProjects" [property]="property"></app-property-card>
+      <!-- Ongoing Projects -->
+      <div class="projects-block" id="ongoing">
+        <div class="block-header">
+          <div class="block-title-wrapper">
+            <div class="block-icon">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <div>
+              <h3 class="block-title">Ongoing Projects</h3>
+              <p class="block-subtitle">Currently under development</p>
+            </div>
+          </div>
+          <a routerLink="/properties" [queryParams]="{status: 'Ongoing'}" class="view-all-btn">
+            View All <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="property-grid-modern">
+          <app-property-card *ngFor="let property of ongoingProjects" [property]="property"></app-property-card>
+        </div>
+      </div>
+
+      <!-- Completed Projects -->
+      <div class="projects-block completed-block" id="completed">
+        <div class="block-header">
+          <div class="block-title-wrapper">
+            <div class="block-icon completed">
+              <i class="fa-solid fa-check-circle"></i>
+            </div>
+            <div>
+              <h3 class="block-title">Completed Projects</h3>
+              <p class="block-subtitle">Successfully delivered properties</p>
+            </div>
+          </div>
+          <a routerLink="/properties" [queryParams]="{status: 'Completed'}" class="view-all-btn">
+            View All <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="property-grid-modern">
+          <app-property-card *ngFor="let property of completedProjects" [property]="property"></app-property-card>
+        </div>
+      </div>
     </div>
   </section>
 
