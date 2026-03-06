@@ -1,6 +1,6 @@
 .property-card {
     background: white;
-    border-radius: var(--radius);
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -38,10 +38,10 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    background: var(--primary);
+    background: var(--secondary);
     color: white;
-    padding: 4px 12px;
-    border-radius: 4px;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -99,8 +99,8 @@
 }
 
 .card-price {
-    font-size: 1.1rem;
-    color: var(--secondary);
+    font-size: 1.15rem;
+    color: var(--primary);
     font-weight: 700;
     margin: 0;
 }
@@ -117,7 +117,7 @@
 
 .card-location {
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: var(--text-muted);
     margin-bottom: 15px;
     display: flex;
     align-items: center;

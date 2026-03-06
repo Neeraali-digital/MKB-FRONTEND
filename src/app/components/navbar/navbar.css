@@ -105,7 +105,7 @@
 .brand {
     font-size: 1.4rem;
     font-weight: 800;
-    color: var(--secondary);
+    color: var(--primary);
     letter-spacing: 0.5px;
     line-height: 1.1;
 }
@@ -113,7 +113,7 @@
 .subtitle {
     font-size: 0.7rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--secondary);
     letter-spacing: 2.5px;
     text-transform: uppercase;
 }
@@ -170,7 +170,7 @@
 .nav-btn {
     padding: 10px 20px;
     font-size: 0.9rem;
-    border-radius: 50px;
+    border-radius: var(--border-radius-pill);
     /* Rounded pill button */
     display: flex;
     align-items: center;
@@ -209,6 +209,11 @@
         /* Slide from side instead of top */
         transition: transform 0.4s ease-in-out;
         z-index: 1001;
+    }
+
+    .social-links a:hover {
+        background: var(--orange-hover);
+        transform: translateY(-3px);
     }
 
     .nav-links.active {

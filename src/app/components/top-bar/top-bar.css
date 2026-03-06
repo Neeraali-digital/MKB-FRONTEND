@@ -1,10 +1,10 @@
 .top-bar {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--primary);
+    color: var(--white);
     padding: 8px 0;
     font-size: 13px;
     font-weight: 500;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .top-bar-inner {
@@ -41,6 +41,14 @@
     justify-content: center;
 }
 
+.subtitle {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--secondary);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
 .separator {
     color: #444;
     font-weight: 300;
@@ -65,9 +73,9 @@
 }
 
 .social-links a:hover {
-    background-color: var(--primary);
-    border-color: var(--primary);
-    color: #000;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--white);
 }
 
 @media (max-width: 992px) {

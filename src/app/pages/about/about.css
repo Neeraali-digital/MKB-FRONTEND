@@ -58,16 +58,16 @@
 
 .about-text h2 {
     font-size: 2.5rem;
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 20px;
 }
 
 .about-text .highlight {
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 .about-text p {
-    color: var(--text-light);
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 20px;
     font-size: 1.05rem;
@@ -99,7 +99,7 @@
 .mv-card {
     background: white;
     padding: 40px;
-    border-radius: var(--radius);
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     text-align: center;
     transition: transform 0.3s ease;
@@ -117,7 +117,7 @@
 
 .mv-card h3 {
     font-size: 1.5rem;
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 15px;
 }
 

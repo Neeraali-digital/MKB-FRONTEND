@@ -81,7 +81,7 @@
 
 /* Hero Specific Highlight Override */
 .hero-title .highlight {
-    color: #FFC107;
+    color: var(--secondary);
     font-size: clamp(3.5rem, 10vw, 6.5rem);
     display: block;
     line-height: 1;
@@ -90,8 +90,7 @@
     font-weight: 400;
     letter-spacing: 4px;
     text-shadow:
-        0 0 10px rgba(255, 193, 7, 0.5),
-        0 0 20px rgba(255, 193, 7, 0.3),
+        0 0 10px rgba(247, 148, 29, 0.4),
         0 4px 8px rgba(0, 0, 0, 0.8);
     animation: fadeInUp 1.4s ease-out;
     margin-top: 10px;
@@ -178,12 +177,12 @@
 
 /* Trust & Stats Section - Compact Design */
 .trust-section-compact {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #000 100%);
     padding: 30px 0;
     margin: 0;
     width: 100%;
-    border-top: 3px solid var(--primary);
-    border-bottom: 3px solid var(--primary);
+    border-top: 3px solid var(--secondary);
+    border-bottom: 3px solid var(--secondary);
 }
 
 .trust-banner {
@@ -199,8 +198,8 @@
 
 .brand-tag {
     display: inline-block;
-    background: var(--primary);
-    color: #000;
+    background: var(--secondary);
+    color: #fff;
     padding: 6px 20px;
     font-size: 0.75rem;
     font-weight: 700;
@@ -453,13 +452,13 @@
     gap: 10px;
     transition: all 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.2);
+    box-shadow: 0 5px 15px rgba(46, 49, 146, 0.2);
 }
 
 .view-all-btn:hover {
     background: var(--primary-hover);
     transform: translateX(5px);
-    box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+    box-shadow: 0 8px 20px rgba(46, 49, 146, 0.3);
 }
 
 .view-all-btn i {
@@ -597,7 +596,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.8rem;
-    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.3);
+    box-shadow: 0 10px 30px rgba(46, 49, 146, 0.2);
 }
 
 .section-tag {
@@ -683,7 +682,7 @@
 
 .review-video-card:hover {
     transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(184, 134, 11, 0.2);
+    box-shadow: 0 30px 60px rgba(46, 49, 146, 0.15);
     border-color: var(--primary);
 }
 
@@ -743,7 +742,7 @@
 }
 
 .review-video-card:hover .reviewer-footer {
-    background: linear-gradient(to top, rgba(184, 134, 11, 0.9), rgba(0, 0, 0, 0.6), transparent);
+    background: linear-gradient(to top, var(--primary), rgba(0, 0, 0, 0.6), transparent);
 }
 
 .reviewer-name {
@@ -812,7 +811,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(184, 134, 11, 0.95), rgba(0, 0, 0, 0.9));
+    background: linear-gradient(135deg, rgba(46, 49, 146, 0.95), rgba(0, 0, 0, 0.9));
 }
 
 .cta-content {
@@ -952,8 +951,7 @@
         font-size: 2.5rem;
         /* Smaller but still bold on mobile */
         text-shadow:
-            0 0 8px rgba(255, 193, 7, 0.5),
-            0 0 15px rgba(255, 193, 7, 0.3),
+            0 0 8px rgba(247, 148, 29, 0.4),
             0 3px 6px rgba(0, 0, 0, 0.8);
         margin-top: 8px;
         display: block;

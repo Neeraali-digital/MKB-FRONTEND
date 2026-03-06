@@ -13,12 +13,12 @@
 
 .listing-header h1 {
     font-size: 2rem;
-    color: var(--secondary);
+    color: var(--primary);
 }
 
 .form-select {
     padding: 8px 12px;
-    border-radius: var(--radius);
+    border-radius: var(--radius-md);
     border: 1px solid #ddd;
     font-family: inherit;
 }
@@ -32,7 +32,7 @@
 /* Skeleton Styles */
 .property-card-skeleton {
     background: #fff;
-    border-radius: var(--radius);
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     height: 420px;

@@ -63,7 +63,7 @@
 .info-card {
     background: white;
     padding: 30px;
-    border-radius: var(--radius);
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     display: flex;
     align-items: flex-start;
@@ -78,7 +78,7 @@
 .info-icon {
     font-size: 1.5rem;
     color: var(--primary);
-    background: rgba(22, 163, 74, 0.1);
+    background: rgba(46, 49, 146, 0.1);
     /* Primary with opacity */
     width: 50px;
     height: 50px;
@@ -97,7 +97,7 @@
 
 .info-text p,
 .info-text a {
-    color: var(--text-light);
+    color: var(--text-muted);
     line-height: 1.6;
     margin: 0;
     font-size: 0.95rem;
@@ -117,7 +117,7 @@
 
 .contact-form-container h2 {
     font-size: 2rem;
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 10px;
 }
 
