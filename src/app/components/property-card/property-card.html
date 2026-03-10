@@ -1,13 +1,25 @@
 <div class="property-card" [routerLink]="['/property', property.id]">
   <div class="card-image">
-    <iframe *ngIf="property.videoUrl" 
-            [src]="getSafeUrl(property.videoUrl)" 
-            title="Property Video" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen 
-            class="property-video">
-    </iframe>
+    <!-- Centered Video Thumbnail implementation replacing iframe to avoid black flashing -->
+    <ng-container *ngIf="property.videoUrl">
+      <!-- Thumbnail state -->
+      <div class="video-placeholder" *ngIf="!isPlaying" (click)="playVideo($event)">
+        <img [src]="getYoutubeThumbnail(property.videoUrl)" alt="Property Video" loading="lazy" class="video-thumbnail">
+        <div class="play-button-overlay">
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+      </div>
+      
+      <!-- Actual Video loaded on demand -->
+      <iframe *ngIf="isPlaying" 
+              [src]="getSafeUrl(property.videoUrl)" 
+              title="Property Video" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen 
+              class="property-video">
+      </iframe>
+    </ng-container>
     <img *ngIf="!property.videoUrl" [src]="property.images[0]" [alt]="property.title" loading="lazy">
     <div class="overlay" *ngIf="!property.videoUrl"></div>
     <div class="status-badge" [class.rent]="property.status === 'For Rent'">

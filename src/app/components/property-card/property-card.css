@@ -172,6 +172,61 @@
     /* Below badges but above background if any */
 }
 
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transform: scale(1.1);
+    /* Hides black youtube borders */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.video-placeholder:hover .video-thumbnail {
+    transform: scale(1.15);
+    opacity: 1;
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff0000;
+    font-size: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.play-button-overlay::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: white;
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.video-placeholder:hover .play-button-overlay {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
 /* Ensure badges are above video */
 .status-badge,
 .project-status,

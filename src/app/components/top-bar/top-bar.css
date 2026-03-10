@@ -45,6 +45,53 @@
     justify-content: center;
 }
 
+.phone-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.phone-link:hover {
+    color: var(--secondary);
+}
+
+.phone-shake-animation {
+    animation: shake 1.5s infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(-10deg);
+    }
+
+    20% {
+        transform: rotate(10deg);
+    }
+
+    30% {
+        transform: rotate(-10deg);
+    }
+
+    40% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
 .subtitle {
     font-size: 0.7rem;
     font-weight: 600;

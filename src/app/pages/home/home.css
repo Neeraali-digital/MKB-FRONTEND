@@ -385,8 +385,11 @@
 /* Projects Section - Modern Unified Design */
 .projects-section-modern {
     padding: 100px 0;
-    background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+    background-color: #fafbfa;
+    /* Very soft warm gray/white */
     position: relative;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 /* Section Header with Decorative Elements */
@@ -616,7 +619,8 @@
 /* Founder's Voice */
 .founders-section {
     padding: 100px 0;
-    background: #fdfdfd;
+    background-color: #ffffff;
+    /* Clean pure white */
 }
 
 .founders-grid {
@@ -710,7 +714,8 @@
 /* Client Reviews Slider */
 .reviews-section {
     padding: 100px 0;
-    background: #fff;
+    background-color: #ffffff;
+    /* Clean pure white */
 }
 
 .reviews-slider {

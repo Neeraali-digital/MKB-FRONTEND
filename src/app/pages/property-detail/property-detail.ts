@@ -43,4 +43,9 @@ export class PropertyDetailComponent implements OnInit {
     const url = `https://maps.google.com/maps?q=${encodeURIComponent(this.property.location)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+  getSafeVideoUrl(url: string | undefined): SafeResourceUrl | null {
+    if (!url) return null;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 }
