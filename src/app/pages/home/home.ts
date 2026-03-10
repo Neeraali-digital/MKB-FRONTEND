@@ -64,6 +64,29 @@ export class HomeComponent implements OnInit {
 
   activeReviewIndex = 0;
 
+  activeHeroIndex = 0;
+  heroSlides = [
+    {
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80',
+      titleHighlight: 'Luxury Villa Plots',
+      subtitle: 'Build your dream home in a secure, master-planned gated community.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80',
+      titleHighlight: 'Prime Bangalore Locations',
+      subtitle: 'RERA-approved projects with clear titles and transparent pricing.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80',
+      titleHighlight: 'High ROI Investments',
+      subtitle: 'Fast-appreciating locations with top-notch amenities and connectivity.'
+    }
+  ];
+
+  setHeroSlide(index: number) {
+    this.activeHeroIndex = index;
+  }
+
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {
@@ -84,6 +107,11 @@ export class HomeComponent implements OnInit {
         this.activeReviewIndex++;
       }
     }, 5000);
+
+    // Auto-slide hero section
+    setInterval(() => {
+      this.activeHeroIndex = (this.activeHeroIndex + 1) % this.heroSlides.length;
+    }, 4500);
   }
 
   setReview(index: number) {

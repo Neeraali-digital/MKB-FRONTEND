@@ -2,14 +2,14 @@
   
   <!-- Hero Section -->
   <section class="hero-section">
-    <div class="hero-bg">
+    <div class="hero-bg" *ngFor="let slide of heroSlides; let i = index" [class.active-bg]="i === activeHeroIndex">
       <div class="overlay"></div>
-      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" alt="Beautiful Home">
+      <img [src]="slide.image" alt="Beautiful Home">
     </div>
     
-    <div class="hero-content container">
-      <h1 class="hero-title">Plotted Developments in <br><span class="highlight">Prime Bangalore Locations</span></h1>
-      <p class="hero-subtitle">RERA-approved projects with clear titles and transparent pricing.</p>
+    <div class="hero-content container" *ngFor="let slide of heroSlides; let i = index" [class.active-content]="i === activeHeroIndex">
+      <h1 class="hero-title">Plotted Developments in <br><span class="highlight">{{ slide.titleHighlight }}</span></h1>
+      <p class="hero-subtitle">{{ slide.subtitle }}</p>
       
       <div class="hero-cta-group">
         <a href="#contact" class="btn btn-primary cta-main">
@@ -19,6 +19,13 @@
           <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
         </a>
       </div>
+    </div>
+
+    <!-- Indicator Dots -->
+    <div class="hero-slider-dots">
+      <span *ngFor="let slide of heroSlides; let i = index" 
+            [class.active-dot]="i === activeHeroIndex"
+            (click)="setHeroSlide(i)"></span>
     </div>
   </section>
 
@@ -53,6 +60,40 @@
     </div>
   </section>
 
+
+  <!-- Client Reviews Section -->
+  <section class="reviews-section container">
+    <div class="section-header-centered">
+      <div class="section-tag">CLIENT REVIEWS</div>
+      <h2>What Our <span class="highlight">Families Say</span></h2>
+    </div>
+
+    <div class="reviews-slider">
+      <div class="reviews-track" [style.transform]="getTransform()">
+        <div class="review-slide" *ngFor="let review of reviews">
+          <div class="review-video-card">
+            <div class="video-tag">
+              <i class="fa-brands fa-youtube"></i> Video Review
+            </div>
+            <div class="video-container">
+              <iframe [src]="getSafeUrl(review.videoUrl)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="reviewer-footer">
+              <div class="reviewer-name">{{review.name}}</div>
+              <div class="reviewer-location">{{review.location}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slider-dots">
+        <span *ngFor="let review of reviews; let i = index" 
+              [class.active]="i === activeReviewIndex"
+              [style.display]="i > (reviews.length - 4) && reviews.length > 4 ? 'none' : 'block'"
+              (click)="setReview(i)"></span>
+      </div>
+    </div>
+  </section>
 
   <!-- Projects Section - Unified Design -->
   <section class="projects-section-modern">
@@ -122,12 +163,12 @@
         </div>
         <div class="founder-content">
           <div class="section-tag">FOUNDER’S VOICE</div>
-          <h2 class="founder-heading">Commitment to Excellence</h2>
+          <h2 class="founder-heading">Lorem Ipsum Dolor</h2>
           <div class="quote-icon">
             <i class="fa-solid fa-quote-left"></i>
           </div>
           <blockquote class="founder-quote">
-            "Our focus is simple — clear titles, honest pricing, and long-term value for every buyer."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           </blockquote>
           <div class="founder-info">
             <h4 class="founder-name">Managing Director</h4>
@@ -138,39 +179,7 @@
     </div>
   </section>
 
-  <!-- Client Reviews Section -->
-  <section class="reviews-section container">
-    <div class="section-header-centered">
-      <div class="section-tag">CLIENT REVIEWS</div>
-      <h2>What Our <span class="highlight">Families Say</span></h2>
-    </div>
 
-    <div class="reviews-slider">
-      <div class="reviews-track" [style.transform]="getTransform()">
-        <div class="review-slide" *ngFor="let review of reviews">
-          <div class="review-video-card">
-            <div class="video-tag">
-              <i class="fa-brands fa-youtube"></i> Video Review
-            </div>
-            <div class="video-container">
-              <iframe [src]="getSafeUrl(review.videoUrl)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="reviewer-footer">
-              <div class="reviewer-name">{{review.name}}</div>
-              <div class="reviewer-location">{{review.location}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slider-dots">
-        <span *ngFor="let review of reviews; let i = index" 
-              [class.active]="i === activeReviewIndex"
-              [style.display]="i > (reviews.length - 4) && reviews.length > 4 ? 'none' : 'block'"
-              (click)="setReview(i)"></span>
-      </div>
-    </div>
-  </section>
 
   <!-- Final CTA Section -->
   <section class="final-cta">

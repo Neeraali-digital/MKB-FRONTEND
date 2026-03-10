@@ -38,7 +38,7 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    background: var(--secondary);
+    background: var(--primary);
     color: white;
     padding: 6px 14px;
     border-radius: var(--radius-sm);

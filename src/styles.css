@@ -37,6 +37,7 @@ body {
   background-color: var(--bg-white);
   color: var(--text-main);
   line-height: 1.6;
+  overflow-x: clip;
 }
 
 *,
