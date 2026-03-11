@@ -23,38 +23,32 @@ export class HomeComponent implements OnInit {
     {
       name: 'Rahul Sharma',
       location: 'Bangalore',
-      videoUrl: 'https://www.youtube.com/embed/5X6x9xY-B28',
-      youtubeId: '5X6x9xY-B28'
+      videoUrl: 'https://www.youtube.com/embed/yrhpHTvA8kE',
+      youtubeId: 'yrhpHTvA8kE'
     },
     {
       name: 'Priya Nair',
       location: 'Kerala',
-      videoUrl: 'https://www.youtube.com/embed/qI_2QfT7u7o',
-      youtubeId: 'qI_2QfT7u7o'
-    },
-    {
-      name: 'Michael Chen',
-      location: 'Dubai',
-      videoUrl: 'https://www.youtube.com/embed/3jG5yB-B0lI',
-      youtubeId: '3jG5yB-B0lI'
+      videoUrl: 'https://www.youtube.com/embed/7xMXjt3o51Y',
+      youtubeId: '7xMXjt3o51Y'
     },
     {
       name: 'Anish Kumar',
       location: 'Bangalore',
-      videoUrl: 'https://www.youtube.com/embed/7X8m-T0fF-4',
-      youtubeId: '7X8m-T0fF-4'
+      videoUrl: 'https://www.youtube.com/embed/WAwEnJha7qo',
+      youtubeId: 'WAwEnJha7qo'
     },
     {
       name: 'Sarah George',
       location: 'Mysore',
-      videoUrl: 'https://www.youtube.com/embed/8G_8Y_Y-X8s',
-      youtubeId: '8G_8Y_Y-X8s'
+      videoUrl: 'https://www.youtube.com/embed/QMr8xKZDor8',
+      youtubeId: 'QMr8xKZDor8'
     },
     {
-      name: 'David Wilson',
+      name: 'Michael Chen',
       location: 'Dubai',
-      videoUrl: 'https://www.youtube.com/embed/yxC6PNoi6M8',
-      youtubeId: 'yxC6PNoi6M8'
+      videoUrl: 'https://www.youtube.com/embed/lg-N6cY1jXw',
+      youtubeId: 'lg-N6cY1jXw'
     }
   ];
 

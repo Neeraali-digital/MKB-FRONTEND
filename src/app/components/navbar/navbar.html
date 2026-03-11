@@ -7,7 +7,7 @@
         <img src="assets/mkb-logo.png" alt="MKB LOGO" class="nav-logo-img">
       </div>
     </a>
-    <div class="menu-toggle" (click)="toggleMenu()">
+    <div class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()">
       <i class="fa-solid" [class.fa-bars]="!isMenuOpen" [class.fa-times]="isMenuOpen"></i>
     </div>
     <ul class="nav-links" [class.active]="isMenuOpen">
