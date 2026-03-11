@@ -40,19 +40,19 @@
         <div class="trust-stats-inline">
           <div class="stat-compact">
             <i class="fa-solid fa-award"></i>
-            <div class="stat-num">10+</div>
+            <div class="stat-num">00 +</div>
             <div class="stat-text">Years</div>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-compact">
             <i class="fa-solid fa-map-location-dot"></i>
-            <div class="stat-num">25+</div>
+            <div class="stat-num">000 +</div>
             <div class="stat-text">Projects</div>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-compact">
             <i class="fa-solid fa-people-roof"></i>
-            <div class="stat-num">500+</div>
+            <div class="stat-num">000+</div>
             <div class="stat-text">Families</div>
           </div>
         </div>
@@ -61,36 +61,31 @@
   </section>
 
 
-  <!-- Client Reviews Section -->
-  <section class="reviews-section container">
-    <div class="section-header-centered">
-      <div class="section-tag">CLIENT REVIEWS</div>
-      <h2>What Our <span class="highlight">Families Say</span></h2>
-    </div>
-
-    <div class="reviews-slider">
-      <div class="reviews-track" [style.transform]="getTransform()">
-        <div class="review-slide" *ngFor="let review of reviews">
-          <div class="review-video-card">
-            <div class="video-tag">
-              <i class="fa-brands fa-youtube"></i> Video Review
-            </div>
-            <div class="video-container">
-              <iframe [src]="getSafeUrl(review.videoUrl)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="reviewer-footer">
-              <div class="reviewer-name">{{review.name}}</div>
-              <div class="reviewer-location">{{review.location}}</div>
-            </div>
-          </div>
+  <!-- Talk to Expert Section -->
+  <section class="expert-section container">
+    <div class="expert-banner">
+      <div class="expert-profile">
+        <div class="expert-avatar-wrapper">
+          <img src="../../../..//public/assets/Girl.jpg" alt="Property Consultant" class="expert-avatar">
+        </div>
+        <div class="expert-status">
+          <span class="pulse-dot"></span> Online
         </div>
       </div>
-      
-      <div class="slider-dots">
-        <span *ngFor="let review of reviews; let i = index" 
-              [class.active]="i === activeReviewIndex"
-              [style.display]="i > (reviews.length - 4) && reviews.length > 4 ? 'none' : 'block'"
-              (click)="setReview(i)"></span>
+      <div class="expert-content">
+        <div class="section-tag">EXPERT ADVICE</div>
+        <h2 class="expert-heading">Talk to our <span class="highlight">Property Expert</span></h2>
+        <p class="expert-description">
+          Need help finding the right property in Bengaluru? Our property expert speaks Kannada, English, and Hindi. Get personalized recommendations, clear your doubts, and schedule a free site visit today.
+        </p>
+        <div class="expert-actions">
+          <a href="tel:+917090444445" class="btn btn-primary expert-btn">
+            <i class="fa-solid fa-phone"></i> Call Now
+          </a>
+          <a href="https://wa.me/917090444445" target="_blank" class="expert-btn-wa">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -147,6 +142,40 @@
         <div class="property-grid-modern">
           <app-property-card *ngFor="let property of completedProjects" [property]="property"></app-property-card>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Reviews Section -->
+  <section class="reviews-section container">
+    <div class="section-header-centered">
+      <div class="section-tag">CLIENT REVIEWS</div>
+      <h2>What Our <span class="highlight">Families Say</span></h2>
+    </div>
+
+    <div class="reviews-slider">
+      <div class="reviews-track" [style.transform]="getTransform()">
+        <div class="review-slide" *ngFor="let review of reviews">
+          <div class="review-video-card">
+            <div class="video-tag">
+              <i class="fa-brands fa-youtube"></i> Video Review
+            </div>
+            <div class="video-container">
+              <iframe [src]="getSafeUrl(review.videoUrl)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="reviewer-footer">
+              <div class="reviewer-name">{{review.name}}</div>
+              <div class="reviewer-location">{{review.location}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slider-dots">
+        <span *ngFor="let review of reviews; let i = index" 
+              [class.active]="i === activeReviewIndex"
+              [style.display]="i > (reviews.length - 4) && reviews.length > 4 ? 'none' : 'block'"
+              (click)="setReview(i)"></span>
       </div>
     </div>
   </section>
