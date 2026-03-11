@@ -450,6 +450,10 @@
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(184, 134, 11, 0.1);
     transition: all 0.4s ease;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .projects-block:hover {
@@ -601,8 +605,10 @@
     }
 
     .property-grid-modern {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 20px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .decoration-line {
@@ -1057,16 +1063,62 @@
 }
 
 @media (max-width: 1024px) {
+    .reviews-slider {
+        overflow: visible;
+        /* Prevent scrollbar clipping */
+    }
+
+    .reviews-track {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        transform: none !important;
+        /* Override JS translating */
+        gap: 20px;
+        padding-bottom: 25px;
+        padding-left: 20px;
+        padding-right: 20px;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    .reviews-track::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .reviews-track::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 10px;
+    }
+
     .review-slide {
-        flex: 0 0 calc(50% - 15px);
-        /* 2 cards per row on tablets */
+        flex: 0 0 calc(60% - 20px);
+        scroll-snap-align: center;
+    }
+
+    .slider-dots {
+        display: none !important;
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .review-slide {
-        flex: 0 0 100%;
-        /* 1 card per row on mobile */
+        flex: 0 0 calc(90% - 20px);
+        /* Show one explicitly, with a peek at the next */
+        scroll-snap-align: center;
+    }
+
+    .reviews-slider {
+        margin-left: -15px;
+        /* Pull out of container padding */
+        margin-right: -15px;
+        width: calc(100% + 30px);
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .reviews-track {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 

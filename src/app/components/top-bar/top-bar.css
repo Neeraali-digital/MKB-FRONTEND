@@ -131,7 +131,39 @@
 
 @media (max-width: 992px) {
     .top-bar {
+        display: flex;
+        height: auto;
+        padding: 5px 15px;
+    }
+
+    .city-label {
         display: none;
-        /* Hide top bar on smaller screens or adjust as needed */
+    }
+
+    .top-bar-inner {
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contact-info,
+    .top-bar-right {
+        flex-wrap: nowrap;
+        justify-content: center;
+        width: auto;
+    }
+
+    .social-links a {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+    }
+
+    .email-info,
+    .separator {
+        display: none;
+        /* keep it minimal, just phone on mobile */
     }
 }
